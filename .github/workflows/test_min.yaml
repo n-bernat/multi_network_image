@@ -1,0 +1,16 @@
+name: Test packages (3.27.0)
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    name: Test packages (3.27.0)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test packages
+        uses: n-bernat/flutter-tools/packages/test@master
+        with:
+          version: "3.27.0"
