@@ -1,3 +1,7 @@
+## 0.1.2
+
+- The package no longer throws an error if a placeholder is loaded.
+
 ## 0.1.1
 
 - Fixed `README.md` typo.

@@ -103,7 +103,9 @@ class _MultiImageCompleter extends ImageStreamCompleter {
       }
     }
 
-    throw Exception('Failed to load any image');
+    if (!_hasImage) {
+      throw Exception('Failed to load any image');
+    }
   }
 }
 
