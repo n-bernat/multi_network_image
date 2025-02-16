@@ -46,7 +46,7 @@ return Image(
 
 `MultiNetworkImage` will look for the first image that is both provided in the list and is cached, and will use it as an initial source.
 
-After that (of if no image is cached), it will try to fetch the first image from the list. If it fails, it will try the next one, and so on.
+After that (or if no image is cached), it will try to fetch the first image from the list. If it fails, it will try the next one, and so on.
 
 It allows you to provide a low-quality image as a fallback, and a high-quality image as a primary source.
 
