@@ -2,8 +2,8 @@ name: multi_network_image
 description: "A package that allows you to handle adaptive images with ease."
 version: 0.0.1
 homepage: "https://nikodembernat.com"
-repository: "https://github.com/n-bernat/flutter_multi_network_image"
-issue_tracker: "https://github.com/n-bernat/flutter_multi_network_image/issues"
+repository: "https://github.com/n-bernat/multi_network_image"
+issue_tracker: "https://github.com/n-bernat/multi_network_image/issues"
 
 topics:
   - flutter

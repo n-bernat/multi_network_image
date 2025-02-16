@@ -4,11 +4,11 @@
 
 `multi_network_image` is a package that allows you to handle adaptive images with ease.
 
-|                                                                                                                   Status                                                                                                                    |               Comments               |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------: |
-| [![multi_network_image - Tests (stable)](https://github.com/n-bernat/flutter_multi_network_image/actions/workflows/test_stable.yaml/badge.svg)](https://github.com/n-bernat/flutter_multi_network_image/actions/workflows/test_stable.yaml) |    Current stable Flutter version    |
-|    [![multi_network_image - Tests (beta)](https://github.com/n-bernat/flutter_multi_network_image/actions/workflows/test_beta.yaml/badge.svg)](https://github.com/n-bernat/flutter_multi_network_image/actions/workflows/test_beta.yaml)    |     Current beta Flutter version     |
-|    [![multi_network_image - Tests (3.27.0)](https://github.com/n-bernat/flutter_multi_network_image/actions/workflows/test_min.yaml/badge.svg)](https://github.com/n-bernat/flutter_multi_network_image/actions/workflows/test_min.yaml)    | The oldest supported Flutter version |
+|                                                                                                           Status                                                                                                            |               Comments               |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------: |
+| [![multi_network_image - Tests (stable)](https://github.com/n-bernat/multi_network_image/actions/workflows/test_stable.yaml/badge.svg)](https://github.com/n-bernat/multi_network_image/actions/workflows/test_stable.yaml) |    Current stable Flutter version    |
+|    [![multi_network_image - Tests (beta)](https://github.com/n-bernat/multi_network_image/actions/workflows/test_beta.yaml/badge.svg)](https://github.com/n-bernat/multi_network_image/actions/workflows/test_beta.yaml)    |     Current beta Flutter version     |
+|    [![multi_network_image - Tests (3.27.0)](https://github.com/n-bernat/multi_network_image/actions/workflows/test_min.yaml/badge.svg)](https://github.com/n-bernat/multi_network_image/actions/workflows/test_min.yaml)    | The oldest supported Flutter version |
 
 ## Getting started
 
@@ -53,7 +53,7 @@ It allows you to provide a low-quality image as a fallback, and a high-quality i
 ## Additional information
 
 - This package requires at least Flutter 3.27.0 to work.
-- If there are any issues feel free to go to [GitHub Issues](https://github.com/n-bernat/flutter_multi_network_image/issues) and report a bug.
+- If there are any issues feel free to go to [GitHub Issues](https://github.com/n-bernat/multi_network_image/issues) and report a bug.
 
 ## Maintainers
 
