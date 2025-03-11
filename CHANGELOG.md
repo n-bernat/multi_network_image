@@ -1,6 +1,8 @@
-## Unreleased
+## 0.1.3
 
 - Fixed an issue that resulted in reloading the image.
+- The package properly reports an error instead of throwing an exception when no image is loaded.
+- Some internal refactoring.
 
 ## 0.1.2
 
