@@ -80,27 +80,14 @@ class _MultiImageCompleter extends ImageStreamCompleter {
   var _hasImage = false;
 
   /// Loads the image from the cache.
-  void _loadCachedImage(NetworkImage image) {
+  Future<void> _loadCachedImage(NetworkImage image) async {
     try {
-      final completer = PaintingBinding.instance.imageCache.putIfAbsent(
-        image,
-        () => image.loadImage(
-          image,
-          PaintingBinding.instance.instantiateImageCodecWithSize,
-        ),
-      );
-
-      ImageInfo? imageInfo;
-      completer?.addListener(
-        ImageStreamListener((image, _) => imageInfo = image),
-      );
-
-      if (!_hasImage && imageInfo != null) {
-        _hasImage = true;
-        setImage(imageInfo!);
+      final imageInfo = await _load(image);
+      if (!_hasImage) {
+        setImage(imageInfo);
       }
     } catch (_) {
-      // Failed to load from cache, try to load from network.
+      // Failed to load from cache, ignore and try to load from network.
     }
   }
 
@@ -109,8 +96,7 @@ class _MultiImageCompleter extends ImageStreamCompleter {
   Future<void> _loadNetworkImage(Iterable<NetworkImage> images) async {
     for (final image in images) {
       try {
-        final completer = _NetworkImageCompleter(image);
-        final imageInfo = await completer.load();
+        final imageInfo = await _load(image);
 
         _hasImage = true;
         setImage(imageInfo);
@@ -125,15 +111,9 @@ class _MultiImageCompleter extends ImageStreamCompleter {
       throw Exception('Failed to load any image');
     }
   }
-}
 
-class _NetworkImageCompleter {
-  _NetworkImageCompleter(this.image);
-  final NetworkImage image;
-
-  final _completer = Completer<ImageInfo>();
-
-  Future<ImageInfo> load() {
+  Future<ImageInfo> _load(NetworkImage image) {
+    final completer = Completer<ImageInfo>();
     final cacheCompleter = PaintingBinding.instance.imageCache.putIfAbsent(
       image,
       () => image.loadImage(
@@ -143,16 +123,17 @@ class _NetworkImageCompleter {
     );
 
     if (cacheCompleter == null) {
-      throw Exception('Failed to load image');
+      completer.completeError(Exception('Failed to load image'));
+      return completer.future;
     }
 
     cacheCompleter.addListener(
       ImageStreamListener(
-        (image, _) => _completer.complete(image),
-        onError: _completer.completeError,
+        (image, _) => completer.complete(image),
+        onError: completer.completeError,
       ),
     );
 
-    return _completer.future;
+    return completer.future;
   }
 }
