@@ -1,3 +1,7 @@
+## Unreleased
+
+- Fixed an issue that resulted in reloading the image.
+
 ## 0.1.2
 
 - The package no longer throws an error if a placeholder is loaded.

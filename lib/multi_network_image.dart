@@ -45,6 +45,24 @@ class MultiNetworkImage extends ImageProvider<MultiNetworkImage> {
       images: images,
     );
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (other.runtimeType != runtimeType) {
+      return false;
+    }
+
+    return other is MultiNetworkImage &&
+        listEquals(other.urls, urls) &&
+        other.scale == scale;
+  }
+
+  @override
+  int get hashCode => Object.hash(urls, scale);
+
+  @override
+  String toString() =>
+      '${objectRuntimeType(this, 'MultiNetworkImage')}($urls, scale: ${scale.toStringAsFixed(1)})';
 }
 
 class _MultiImageCompleter extends ImageStreamCompleter {
