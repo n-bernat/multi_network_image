@@ -71,7 +71,8 @@ class _MultiImageCompleter extends ImageStreamCompleter {
     required Iterable<NetworkImage> images,
   }) {
     if (cached case final cached?) {
-      _loadCachedImage(cached);
+      // Loading from cache is best-effort, ignore any errors.
+      _loadCachedImage(cached).ignore();
     }
 
     _loadNetworkImage(images);
@@ -81,13 +82,9 @@ class _MultiImageCompleter extends ImageStreamCompleter {
 
   /// Loads the image from the cache.
   Future<void> _loadCachedImage(NetworkImage image) async {
-    try {
-      final imageInfo = await _load(image);
-      if (!_hasImage) {
-        setImage(imageInfo);
-      }
-    } catch (_) {
-      // Failed to load from cache, ignore and try to load from network.
+    final imageInfo = await _load(image);
+    if (!_hasImage) {
+      setImage(imageInfo);
     }
   }
 
@@ -109,7 +106,7 @@ class _MultiImageCompleter extends ImageStreamCompleter {
 
     if (!_hasImage) {
       reportError(
-        exception: Exception('Failed to load any image'),
+        exception: Exception('Failed to load any image.'),
         stack: StackTrace.current,
       );
     }
@@ -126,7 +123,7 @@ class _MultiImageCompleter extends ImageStreamCompleter {
     );
 
     if (cacheCompleter == null) {
-      completer.completeError(Exception('Failed to load image'));
+      completer.completeError(Exception('Failed to load an image.'));
       return completer.future;
     }
 
