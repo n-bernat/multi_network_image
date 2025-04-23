@@ -2,7 +2,7 @@
 
 [![Package](https://img.shields.io/pub/v/multi_network_image.svg)](https://pub.dev/packages/multi_network_image) [![Publisher](https://img.shields.io/pub/publisher/multi_network_image.svg)](https://pub.dev/packages/multi_network_image/publisher) [![MIT License](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT) [![LeanCode Style](https://img.shields.io/badge/style-leancode__lint-black)](https://pub.dartlang.org/packages/leancode_lint)
 
-`multi_network_image` is a package that allows you to handle adaptive images with ease.
+`multi_network_image` is a package that allows you to handle adaptive images with ease ([demo](https://x.com/nikodembernat/status/1891186079786537256)).
 
 |                                                                                                           Status                                                                                                            |               Comments               |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------: |
